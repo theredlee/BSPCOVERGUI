@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct TabOverall: View {
+    
+    let lineChart: Line
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//        ScrollView {
+//                    VStack(alignment: .leading, spacing: 12) {
+//                        HStack(alignment: .center, spacing: 24) {
+//
+//                            VStack(alignment: .leading) {
+//                                lineChart
+//                            }
+//                            .font(.caption)
+//                        }
+//                    }
+//                    .padding()
+//                    .frame(maxWidth: 700)
+//                }
+        lineChart
     }
 }
 
 struct TabOverall_Previews: PreviewProvider {
     static var previews: some View {
-        TabOverall()
+        TabOverall(lineChart: Line())
     }
 }

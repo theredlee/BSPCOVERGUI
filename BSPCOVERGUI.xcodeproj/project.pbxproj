@@ -24,9 +24,9 @@
 		758552FF24F3B2C100F18913 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 758552FE24F3B2C100F18913 /* Preview Assets.xcassets */; };
 		7585530B24F3B2C100F18913 /* BSPCOVERGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7585530A24F3B2C100F18913 /* BSPCOVERGUITests.swift */; };
 		7585531624F3B2C100F18913 /* BSPCOVERGUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7585531524F3B2C100F18913 /* BSPCOVERGUIUITests.swift */; };
-		7585532E24F3B34C00F18913 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7585532A24F3B30200F18913 /* Charts.framework */; };
-		7585532F24F3B34C00F18913 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7585532A24F3B30200F18913 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		758A7A5D24F41652001F9975 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A5C24F41652001F9975 /* Database.swift */; };
+		758A7A7D24F41C21001F9975 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758A7A7A24F41C17001F9975 /* Charts.framework */; };
+		758A7A7E24F41C21001F9975 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 758A7A7A24F41C17001F9975 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,16 +44,16 @@
 			remoteGlobalIDString = 758552F324F3B2BE00F18913;
 			remoteInfo = BSPCOVERGUI;
 		};
-		7585532924F3B30200F18913 /* PBXContainerItemProxy */ = {
+		758A7A7924F41C17001F9975 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7585532424F3B30200F18913 /* Charts.xcodeproj */;
+			containerPortal = 758A7A7424F41C17001F9975 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
 			remoteInfo = Charts;
 		};
-		7585532B24F3B30200F18913 /* PBXContainerItemProxy */ = {
+		758A7A7B24F41C17001F9975 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7585532424F3B30200F18913 /* Charts.xcodeproj */;
+			containerPortal = 758A7A7424F41C17001F9975 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
 			remoteInfo = ChartsTests;
@@ -67,7 +67,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7585532F24F3B34C00F18913 /* Charts.framework in Embed Frameworks */,
+				758A7A7E24F41C21001F9975 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,8 +99,8 @@
 		7585531124F3B2C100F18913 /* BSPCOVERGUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSPCOVERGUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7585531524F3B2C100F18913 /* BSPCOVERGUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSPCOVERGUIUITests.swift; sourceTree = "<group>"; };
 		7585531724F3B2C100F18913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7585532424F3B30200F18913 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../../../../Downloads/Chrome Download/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		758A7A5C24F41652001F9975 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		758A7A7424F41C17001F9975 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../../Downloads/Chrome Download/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7585532E24F3B34C00F18913 /* Charts.framework in Frameworks */,
+				758A7A7D24F41C21001F9975 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,6 @@
 		755B449524F3B72100462CE9 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				755B44BA24F3DBAA00462CE9 /* Data */,
 				755B44AF24F3D49200462CE9 /* Charts */,
 				755B44A824F3D3DB00462CE9 /* Tabs */,
 				755B44A724F3D3CE00462CE9 /* Side */,
@@ -186,6 +185,7 @@
 				7585531424F3B2C100F18913 /* BSPCOVERGUIUITests */,
 				758552F524F3B2BE00F18913 /* Products */,
 				7585532D24F3B34C00F18913 /* Frameworks */,
+				758A7A7424F41C17001F9975 /* Charts.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,18 +242,9 @@
 		7585532324F3B2FB00F18913 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7585532424F3B30200F18913 /* Charts.xcodeproj */,
+				755B44BA24F3DBAA00462CE9 /* Data */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		7585532524F3B30200F18913 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7585532A24F3B30200F18913 /* Charts.framework */,
-				7585532C24F3B30200F18913 /* ChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		7585532D24F3B34C00F18913 /* Frameworks */ = {
@@ -288,6 +279,15 @@
 				758552F724F3B2BE00F18913 /* BSPCOVERGUIApp.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		758A7A7524F41C17001F9975 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				758A7A7A24F41C17001F9975 /* Charts.framework */,
+				758A7A7C24F41C17001F9975 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,8 +382,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 7585532524F3B30200F18913 /* Products */;
-					ProjectRef = 7585532424F3B30200F18913 /* Charts.xcodeproj */;
+					ProductGroup = 758A7A7524F41C17001F9975 /* Products */;
+					ProjectRef = 758A7A7424F41C17001F9975 /* Charts.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -396,18 +396,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		7585532A24F3B30200F18913 /* Charts.framework */ = {
+		758A7A7A24F41C17001F9975 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 7585532924F3B30200F18913 /* PBXContainerItemProxy */;
+			remoteRef = 758A7A7924F41C17001F9975 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		7585532C24F3B30200F18913 /* ChartsTests.xctest */ = {
+		758A7A7C24F41C17001F9975 /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = 7585532B24F3B30200F18913 /* PBXContainerItemProxy */;
+			remoteRef = 758A7A7B24F41C17001F9975 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

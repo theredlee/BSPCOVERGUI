@@ -25,8 +25,11 @@ struct Line: NSViewRepresentable {
     
     func addData() -> LineChartData{
         // Do any additional setup after loading the view.
-        let ys1 = Array(1..<10).map { x in return sin(Double(x) / 2.0 / 3.141 * 1.5) }
-        let ys2 = Array(1..<10).map { x in return cos(Double(x) / 2.0 / 3.141) }
+//        let ys1 = Array(1..<10).map { x in return sin(Double(x) / 2.0 / 3.141 * 1.5) }
+//        let ys2 = Array(1..<10).map { x in return cos(Double(x) / 2.0 / 3.141) }
+        
+        let ys1 = Database.values[1].values
+        let ys2 = Database.values[2].values
         
         let yse1 = ys1.enumerated().map { x, y in return ChartDataEntry(x: Double(x), y: y) }
         let yse2 = ys2.enumerated().map { x, y in return ChartDataEntry(x: Double(x), y: y) }

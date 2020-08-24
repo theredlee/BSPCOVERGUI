@@ -26,7 +26,7 @@ final class DatabaseManager {
     }
     
     private func addvalues(num: Int) -> [Double] {
-        return Array(1..<10).map { num in return sin(Double(num) / 2.0 / 3.141 * 1.5) }
+        return Array(1..<10).map { x in return sin(Double(x*num) / 2.0 / 3.141 * 1.5) }
     }
 }
 
