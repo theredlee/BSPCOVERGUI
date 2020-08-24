@@ -11,7 +11,7 @@ import SwiftUI
 struct BSPCOVERGUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(sideList: SideList())
         }
     }
 }
