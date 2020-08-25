@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		753A126224F4ED8D00AA3F05 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A126124F4ED8D00AA3F05 /* Label.swift */; };
 		755B44A024F3BBBB00462CE9 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B449F24F3BBBB00462CE9 /* Line.swift */; };
 		755B44AA24F3D40900462CE9 /* TabOverall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44A924F3D40900462CE9 /* TabOverall.swift */; };
 		755B44AC24F3D45100462CE9 /* TabBSPCOVERRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44AB24F3D45100462CE9 /* TabBSPCOVERRun.swift */; };
 		755B44AE24F3D46200462CE9 /* TabDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44AD24F3D46200462CE9 /* TabDetails.swift */; };
 		755B44B124F3D4B300462CE9 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44B024F3D4B300462CE9 /* Bar.swift */; };
-		755B44B524F3D52100462CE9 /* SideRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44B424F3D52100462CE9 /* SideRow.swift */; };
-		755B44B724F3D79100462CE9 /* SideList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44B624F3D79100462CE9 /* SideList.swift */; };
-		755B44B924F3DAA400462CE9 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44B824F3DAA400462CE9 /* Filter.swift */; };
+		755B44B524F3D52100462CE9 /* SideBarRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44B424F3D52100462CE9 /* SideBarRow.swift */; };
+		755B44B724F3D79100462CE9 /* SideBarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44B624F3D79100462CE9 /* SideBarList.swift */; };
+		755B44B924F3DAA400462CE9 /* SideBarFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44B824F3DAA400462CE9 /* SideBarFilter.swift */; };
 		755B44BC24F3DBF900462CE9 /* Timeseries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44BB24F3DBF900462CE9 /* Timeseries.swift */; };
 		755B44BE24F3DC0500462CE9 /* Shapelet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44BD24F3DC0500462CE9 /* Shapelet.swift */; };
 		755B44C024F3E29C00462CE9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B44BF24F3E29C00462CE9 /* DatabaseManager.swift */; };
@@ -27,6 +28,8 @@
 		758A7A5D24F41652001F9975 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A5C24F41652001F9975 /* Database.swift */; };
 		758A7A7D24F41C21001F9975 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758A7A7A24F41C17001F9975 /* Charts.framework */; };
 		758A7A7E24F41C21001F9975 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 758A7A7A24F41C17001F9975 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		758A7A8224F4D43A001F9975 /* NavigationPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */; };
+		758A7A8524F4E7BA001F9975 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8424F4E7BA001F9975 /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,14 +78,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		753A126124F4ED8D00AA3F05 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		755B449F24F3BBBB00462CE9 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		755B44A924F3D40900462CE9 /* TabOverall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabOverall.swift; sourceTree = "<group>"; };
 		755B44AB24F3D45100462CE9 /* TabBSPCOVERRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBSPCOVERRun.swift; sourceTree = "<group>"; };
 		755B44AD24F3D46200462CE9 /* TabDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDetails.swift; sourceTree = "<group>"; };
 		755B44B024F3D4B300462CE9 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
-		755B44B424F3D52100462CE9 /* SideRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideRow.swift; sourceTree = "<group>"; };
-		755B44B624F3D79100462CE9 /* SideList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideList.swift; sourceTree = "<group>"; };
-		755B44B824F3DAA400462CE9 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		755B44B424F3D52100462CE9 /* SideBarRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarRow.swift; sourceTree = "<group>"; };
+		755B44B624F3D79100462CE9 /* SideBarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarList.swift; sourceTree = "<group>"; };
+		755B44B824F3DAA400462CE9 /* SideBarFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarFilter.swift; sourceTree = "<group>"; };
 		755B44BB24F3DBF900462CE9 /* Timeseries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeseries.swift; sourceTree = "<group>"; };
 		755B44BD24F3DC0500462CE9 /* Shapelet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapelet.swift; sourceTree = "<group>"; };
 		755B44BF24F3E29C00462CE9 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		7585531724F3B2C100F18913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		758A7A5C24F41652001F9975 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		758A7A7424F41C17001F9975 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../../Downloads/Chrome Download/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPrimary.swift; sourceTree = "<group>"; };
+		758A7A8424F4E7BA001F9975 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +138,9 @@
 		755B449524F3B72100462CE9 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				758A7A8324F4E79A001F9975 /* Supporting Views */,
 				755B44AF24F3D49200462CE9 /* Charts */,
-				755B44A824F3D3DB00462CE9 /* Tabs */,
+				755B44A824F3D3DB00462CE9 /* TabsDetails */,
 				755B44A724F3D3CE00462CE9 /* Side */,
 			);
 			path = Others;
@@ -142,21 +149,22 @@
 		755B44A724F3D3CE00462CE9 /* Side */ = {
 			isa = PBXGroup;
 			children = (
-				755B44B424F3D52100462CE9 /* SideRow.swift */,
-				755B44B624F3D79100462CE9 /* SideList.swift */,
-				755B44B824F3DAA400462CE9 /* Filter.swift */,
+				755B44B424F3D52100462CE9 /* SideBarRow.swift */,
+				755B44B624F3D79100462CE9 /* SideBarList.swift */,
+				755B44B824F3DAA400462CE9 /* SideBarFilter.swift */,
+				758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */,
 			);
 			path = Side;
 			sourceTree = "<group>";
 		};
-		755B44A824F3D3DB00462CE9 /* Tabs */ = {
+		755B44A824F3D3DB00462CE9 /* TabsDetails */ = {
 			isa = PBXGroup;
 			children = (
 				755B44A924F3D40900462CE9 /* TabOverall.swift */,
 				755B44AB24F3D45100462CE9 /* TabBSPCOVERRun.swift */,
 				755B44AD24F3D46200462CE9 /* TabDetails.swift */,
 			);
-			path = Tabs;
+			path = TabsDetails;
 			sourceTree = "<group>";
 		};
 		755B44AF24F3D49200462CE9 /* Charts */ = {
@@ -259,6 +267,7 @@
 			children = (
 				755B44BB24F3DBF900462CE9 /* Timeseries.swift */,
 				755B44BD24F3DC0500462CE9 /* Shapelet.swift */,
+				753A126124F4ED8D00AA3F05 /* Label.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,6 +297,14 @@
 				758A7A7C24F41C17001F9975 /* ChartsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		758A7A8324F4E79A001F9975 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				758A7A8424F4E7BA001F9975 /* CircleImage.swift */,
+			);
+			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,17 +461,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				755B44AE24F3D46200462CE9 /* TabDetails.swift in Sources */,
-				755B44B924F3DAA400462CE9 /* Filter.swift in Sources */,
+				758A7A8524F4E7BA001F9975 /* CircleImage.swift in Sources */,
+				755B44B924F3DAA400462CE9 /* SideBarFilter.swift in Sources */,
 				755B44BC24F3DBF900462CE9 /* Timeseries.swift in Sources */,
 				755B44B124F3D4B300462CE9 /* Bar.swift in Sources */,
+				758A7A8224F4D43A001F9975 /* NavigationPrimary.swift in Sources */,
 				758552FA24F3B2BE00F18913 /* ContentView.swift in Sources */,
 				755B44AA24F3D40900462CE9 /* TabOverall.swift in Sources */,
 				755B44A024F3BBBB00462CE9 /* Line.swift in Sources */,
 				755B44BE24F3DC0500462CE9 /* Shapelet.swift in Sources */,
-				755B44B524F3D52100462CE9 /* SideRow.swift in Sources */,
-				755B44B724F3D79100462CE9 /* SideList.swift in Sources */,
+				755B44B524F3D52100462CE9 /* SideBarRow.swift in Sources */,
+				755B44B724F3D79100462CE9 /* SideBarList.swift in Sources */,
 				755B44AC24F3D45100462CE9 /* TabBSPCOVERRun.swift in Sources */,
 				755B44C024F3E29C00462CE9 /* DatabaseManager.swift in Sources */,
+				753A126224F4ED8D00AA3F05 /* Label.swift in Sources */,
 				758A7A5D24F41652001F9975 /* Database.swift in Sources */,
 				758552F824F3B2BE00F18913 /* BSPCOVERGUIApp.swift in Sources */,
 			);

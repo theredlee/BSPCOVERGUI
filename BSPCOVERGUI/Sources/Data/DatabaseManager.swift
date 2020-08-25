@@ -15,14 +15,22 @@ final class DatabaseManager {
     public func initData() -> [Timeseries] {
         var values = [Timeseries]()
         values.append(DatabaseManager.shared.addData(num: 0))
+        values.append(DatabaseManager.shared.addData(num: 4, label: 0))
         values.append(DatabaseManager.shared.addData(num: 1))
         values.append(DatabaseManager.shared.addData(num: 2))
         return values
     }
     
     private func addData(num: Int) -> Timeseries {
+        let label = Label(value: num)
         let values = addvalues(num: num)
-        return Timeseries(id: num, name: "timeseries - \(num)", values: values)
+        return Timeseries(id: num, name: "timeseries - \(num)", values: values, label: label)
+    }
+    
+    private func addData(num: Int, label: Int) -> Timeseries {
+        let label = Label(value: label)
+        let values = addvalues(num: num)
+        return Timeseries(id: num, name: "timeseries - \(num)", values: values, label: label)
     }
     
     private func addvalues(num: Int) -> [Double] {

@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-struct SideRow: View {
-    
+struct SideBarRow: View {
     var timeseries: Timeseries
     
     var body: some View {
-        
         VStack(alignment: .leading) {
             
             Text(timeseries.name)
@@ -20,7 +18,7 @@ struct SideRow: View {
                 .truncationMode(.tail)
                 .frame(minWidth: 20)
             
-            Text("Time series")
+            Text(String(timeseries.label.name))
                 .font(.caption)
                 .opacity(0.625)
                 .truncationMode(.middle)

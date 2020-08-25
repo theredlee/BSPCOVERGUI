@@ -10,7 +10,7 @@ import Charts
 
 struct Line: NSViewRepresentable {
     // Line chart accepts data as array of BarChartDataEntry objects
-//    var entries : [BarChartDataEntry]
+    //    var entries : [BarChartDataEntry]
     
     func makeNSView(context: Context) -> LineChartView {
         let chart = LineChartView()
@@ -25,8 +25,8 @@ struct Line: NSViewRepresentable {
     
     func addData() -> LineChartData{
         // Do any additional setup after loading the view.
-//        let ys1 = Array(1..<10).map { x in return sin(Double(x) / 2.0 / 3.141 * 1.5) }
-//        let ys2 = Array(1..<10).map { x in return cos(Double(x) / 2.0 / 3.141) }
+        //        let ys1 = Array(1..<10).map { x in return sin(Double(x) / 2.0 / 3.141 * 1.5) }
+        //        let ys2 = Array(1..<10).map { x in return cos(Double(x) / 2.0 / 3.141) }
         
         let ys1 = Database.values[1].values
         let ys2 = Database.values[2].values

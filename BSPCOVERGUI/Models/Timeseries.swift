@@ -11,5 +11,5 @@ struct Timeseries: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var values: [Double]
-//    fileprivate var timeseriesName: String
+    var label: Label
 }

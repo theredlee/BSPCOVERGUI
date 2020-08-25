@@ -8,26 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    let sideList: SideList
-    
-    let lineChart: Line
-    
-//    @State private var selectedTimeseries: Timeseries?
+    @State var selectedTimeseries: Timeseries? = Database.defaultValue
     
     var body: some View {
         NavigationView {
-            sideList
+            NavigationPrimary(selectedTimeseries: $selectedTimeseries)
             
-            lineChart
-                }
-                .frame(minWidth: 700, minHeight: 300)
-        
+            if selectedTimeseries != nil {
+                TabOverall(timeseries: selectedTimeseries ?? Database.defaultValue)
+            }
+        }
+        .navigationTitle("ABC")
+        .frame(minWidth: 700, minHeight: 300)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(sideList: SideList(), lineChart: Line())
+        ContentView()
     }
 }
