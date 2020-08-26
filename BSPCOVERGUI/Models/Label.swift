@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Label: Hashable, Codable {
+struct Label: Hashable, Codable, Identifiable {
+    var id: Int
     var value: Int
     var name: String { return "label - \(value)"}
 }

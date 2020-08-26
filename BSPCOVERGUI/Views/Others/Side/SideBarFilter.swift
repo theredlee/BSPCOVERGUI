@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct SideBarFilter: View {
-    @Binding var filter: FilterType
+    @Binding var selectedTimeseriesLabel: Label?
     
     var body: some View {
         HStack {
-            Picker(selection: $filter, label: EmptyView()) {
-                ForEach(FilterType.allCases) { choice in
-                    Text(choice.name).tag(choice)
+            Picker(selection: $selectedTimeseriesLabel, label: Text("Please choose a color")) {
+                ForEach(Database.shared.allTimeseriesLabels) { label in
+                    Text(label.name).tag(label)
                 }
             }
-            
             Spacer()
-            //            Toggle(isOn: <#Binding<Bool>#>) {
+            //            Toggle(isOn: ) {
             //                Text("Favorites only")
             //            }
         }
@@ -28,28 +27,6 @@ struct SideBarFilter: View {
 
 struct Filter_Previews: PreviewProvider {
     static var previews: some View {
-        SideBarFilter(filter: .constant(.defaultType))
-    }
-}
-
-
-struct FilterType: Hashable, Identifiable {
-    
-    var label: Int
-    var name: String
-    
-    init(label: Int) {
-        self.label = label
-        self.name = "label - \(label)"
-    }
-    
-    static var defaultType = FilterType(label: 0)
-    
-    static var allCases: [FilterType] {
-        return Database.allLabels.map(FilterType.init)
-    }
-    
-    var id: FilterType {
-        return self
+        SideBarFilter(selectedTimeseriesLabel: .constant(Database.shared.defaultTimeseriesLabel))
     }
 }

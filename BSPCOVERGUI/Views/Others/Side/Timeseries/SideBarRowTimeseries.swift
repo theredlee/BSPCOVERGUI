@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SideBarRow: View {
+struct SideBarRowTimeseries: View {
     var timeseries: Timeseries
     
     var body: some View {

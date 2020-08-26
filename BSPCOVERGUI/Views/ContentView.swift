@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var selectedTimeseries: Timeseries? = Database.defaultValue
+    @State private var selectedTimeseries: Timeseries?
+    @State var selectedTimeseriesLabel: Label?
+    @State var selectedShapelet: Shapelet?
+    @State var selectedShapeletLabel: Label?
     
     var body: some View {
         NavigationView {
-            NavigationPrimary(selectedTimeseries: $selectedTimeseries)
+            NavigationPrimary(selectedTimeseries: $selectedTimeseries, selectedTimeseriesLabel: $selectedTimeseriesLabel, selectedShapelet: $selectedShapelet, selectedShapeletLabel: $selectedShapeletLabel)
             
-            if selectedTimeseries != nil {
-                TabOverall(timeseries: selectedTimeseries ?? Database.defaultValue)
-            }
+            TabOverall(selectedTimeseries: $selectedTimeseries, selectedShapelet: $selectedShapelet)
         }
-        .navigationTitle("ABC")
+        .navigationTitle("BSPCOVERGUI")
         .frame(minWidth: 700, minHeight: 300)
+        .onChange(of: selectedTimeseries, perform: { value in
+            //
+        })
     }
 }
 
