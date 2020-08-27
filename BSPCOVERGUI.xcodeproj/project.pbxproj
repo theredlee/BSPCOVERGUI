@@ -33,9 +33,11 @@
 		758A7A7E24F41C21001F9975 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 758A7A7A24F41C17001F9975 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		758A7A8224F4D43A001F9975 /* NavigationPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */; };
 		758A7A8524F4E7BA001F9975 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8424F4E7BA001F9975 /* CircleImage.swift */; };
+		75DF339524F78C5700EFBB9E /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF339424F78C5700EFBB9E /* Carousel.swift */; };
 		75F1A34924F69A7B00370602 /* SideBarListShapelet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A34824F69A7A00370602 /* SideBarListShapelet.swift */; };
 		75F1A34C24F69C4300370602 /* SideBarRowShapelet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A34B24F69C4300370602 /* SideBarRowShapelet.swift */; };
 		75F1A35124F6A36700370602 /* ShapeletLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A35024F6A36700370602 /* ShapeletLine.swift */; };
+		75F1A35524F7882E00370602 /* HScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A35424F7882E00370602 /* HScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,9 +118,11 @@
 		758A7A7424F41C17001F9975 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../../Downloads/Chrome Download/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPrimary.swift; sourceTree = "<group>"; };
 		758A7A8424F4E7BA001F9975 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		75DF339424F78C5700EFBB9E /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		75F1A34824F69A7A00370602 /* SideBarListShapelet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarListShapelet.swift; sourceTree = "<group>"; };
 		75F1A34B24F69C4300370602 /* SideBarRowShapelet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarRowShapelet.swift; sourceTree = "<group>"; };
 		75F1A35024F6A36700370602 /* ShapeletLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeletLine.swift; sourceTree = "<group>"; };
+		75F1A35424F7882E00370602 /* HScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,9 +177,11 @@
 		755B44A824F3D3DB00462CE9 /* TabsDetails */ = {
 			isa = PBXGroup;
 			children = (
-				755B44A924F3D40900462CE9 /* TabOverall.swift */,
 				755B44AB24F3D45100462CE9 /* TabBSPCOVERRun.swift */,
+				755B44A924F3D40900462CE9 /* TabOverall.swift */,
 				755B44AD24F3D46200462CE9 /* TabDetails.swift */,
+				75F1A35424F7882E00370602 /* HScrollView.swift */,
+				75DF339424F78C5700EFBB9E /* Carousel.swift */,
 			);
 			path = TabsDetails;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				753A126B24F5344600AA3F05 /* LoadShapelet.swift in Sources */,
 				755B44BE24F3DC0500462CE9 /* Shapelet.swift in Sources */,
 				7534CF2824F5657A003DD289 /* ConsolePanel.swift in Sources */,
+				75F1A35524F7882E00370602 /* HScrollView.swift in Sources */,
 				755B44B524F3D52100462CE9 /* SideBarRowTimeseries.swift in Sources */,
 				755B44B724F3D79100462CE9 /* SideBarListTimeseries.swift in Sources */,
 				75F1A34924F69A7B00370602 /* SideBarListShapelet.swift in Sources */,
@@ -516,6 +523,7 @@
 				755B44C024F3E29C00462CE9 /* DatabaseManager.swift in Sources */,
 				753A126224F4ED8D00AA3F05 /* Label.swift in Sources */,
 				758A7A5D24F41652001F9975 /* Database.swift in Sources */,
+				75DF339524F78C5700EFBB9E /* Carousel.swift in Sources */,
 				758552F824F3B2BE00F18913 /* BSPCOVERGUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
