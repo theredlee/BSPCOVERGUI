@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		758A7A7E24F41C21001F9975 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 758A7A7A24F41C17001F9975 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		758A7A8224F4D43A001F9975 /* NavigationPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */; };
 		758A7A8524F4E7BA001F9975 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8424F4E7BA001F9975 /* CircleImage.swift */; };
+		75CB02B124F80ACC00E94DEA /* Socket in Frameworks */ = {isa = PBXBuildFile; productRef = 75CB02B024F80ACC00E94DEA /* Socket */; };
 		75DF339524F78C5700EFBB9E /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF339424F78C5700EFBB9E /* Carousel.swift */; };
 		75F1A34924F69A7B00370602 /* SideBarListShapelet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A34824F69A7A00370602 /* SideBarListShapelet.swift */; };
 		75F1A34C24F69C4300370602 /* SideBarRowShapelet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A34B24F69C4300370602 /* SideBarRowShapelet.swift */; };
@@ -131,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				758A7A7D24F41C21001F9975 /* Charts.framework in Frameworks */,
+				75CB02B124F80ACC00E94DEA /* Socket in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +366,9 @@
 			dependencies = (
 			);
 			name = BSPCOVERGUI;
+			packageProductDependencies = (
+				75CB02B024F80ACC00E94DEA /* Socket */,
+			);
 			productName = BSPCOVERGUI;
 			productReference = 758552F424F3B2BE00F18913 /* BSPCOVERGUI.app */;
 			productType = "com.apple.product-type.application";
@@ -435,6 +440,9 @@
 				Base,
 			);
 			mainGroup = 758552EB24F3B2BE00F18913;
+			packageReferences = (
+				75CB02AF24F80ACC00E94DEA /* XCRemoteSwiftPackageReference "BlueSocket" */,
+			);
 			productRefGroup = 758552F524F3B2BE00F18913 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -847,6 +855,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		75CB02AF24F80ACC00E94DEA /* XCRemoteSwiftPackageReference "BlueSocket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/IBM-Swift/BlueSocket.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.52;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		75CB02B024F80ACC00E94DEA /* Socket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75CB02AF24F80ACC00E94DEA /* XCRemoteSwiftPackageReference "BlueSocket" */;
+			productName = Socket;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 758552EC24F3B2BE00F18913 /* Project object */;
 }
