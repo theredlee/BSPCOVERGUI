@@ -23,13 +23,14 @@ struct ContentView: View {
             NavigationPrimary(str: $str, selectedTimeseries: $selectedTimeseries, selectedTimeseriesLabel: $selectedTimeseriesLabel, selectedShapelet: $selectedShapelet, selectedShapeletLabel: $selectedShapeletLabel)
             
             //            TabOverall(selectedTimeseries: $selectedTimeseries, selectedShapelet: $selectedShapelet)
-            Carousel(selectedTimeseries: $selectedTimeseries, selectedTimeseriesLabel: $selectedTimeseriesLabel, selectedShapelet: $selectedShapelet, selectedShapeletLabel: $selectedShapeletLabel, timeseriesArr: .constant([Database.shared.defaultTimeseries]), str: $str)
+            Carousel(selectedTimeseries: $selectedTimeseries, selectedTimeseriesLabel: $selectedTimeseriesLabel, selectedShapelet: $selectedShapelet, selectedShapeletLabel: $selectedShapeletLabel, timeseriesArr: $timeseriesArr, str: $str)
         }
         .navigationTitle("BSPCOVERGUI")
         .frame(minWidth: 700, minHeight: 300)
         .onChange(of: selectedShapelet, perform: { value in
-            if (Database.shared.shapeletIsInit && Database.shared.timeseriesIsInit) {
+            if !(Database.shared.shapeletIsInit && Database.shared.timeseriesIsInit) {
                 timeseriesArr = [Database.shared.defaultTimeseries]
+                return
             }
             
             let count: Int = Database.shared.shapeletCount
@@ -41,7 +42,12 @@ struct ContentView: View {
                 numOfTimeserie = count
             }
             
-            timeseriesArr = DatabaseManager.shared.getTopKTimeseries(defaultTopK: numOfTimeserie, shapelet: value ?? Database.shared.defaultShapelet)
+            timeseriesArr = DatabaseManager.shared.getTopKTimeseries(defaultTopK: numOfTimeserie, shapelet: selectedShapelet ?? Database.shared.defaultShapelet)
+            
+            let a = String(selectedShapelet?.id ?? -1)
+            let b = "\n\(String(describing: timeseriesArr?.count)) - \(String(describing: timeseriesArr?[0].id))"
+            //            let b = timeseriesArr?.count
+            str = a + b
         })
     }
 }

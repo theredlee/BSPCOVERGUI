@@ -14,7 +14,6 @@ struct MultiTimeseriesLine: View {
     let numOfTimeserie: Int = 10
     
     var body: some View {
-        
         ScrollView(.horizontal, showsIndicators: false){
             HStack(spacing: 20) {
                 ForEach(0..<numOfTimeserie) { index in

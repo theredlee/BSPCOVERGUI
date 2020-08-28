@@ -46,7 +46,7 @@ struct Carousel: View {
                     //                    .frame(width: fullView.size.width)
                     
                     GeometryReader { geo in
-                        TabDetails(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedShapelet: .constant(Database.shared.defaultShapelet), timeseriesArr: .constant([Database.shared.defaultTimeseries]))
+                        TabDetails(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedShapelet: .constant(Database.shared.defaultShapelet), timeseriesArr: $timeseriesArr)
                     }
                     .frame(width: fullView.size.width)
                     //                    }
@@ -56,7 +56,7 @@ struct Carousel: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        }
+    }
 }
 
 struct Carousel_Previews: PreviewProvider {

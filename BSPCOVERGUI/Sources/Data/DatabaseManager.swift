@@ -247,8 +247,8 @@ extension DatabaseManager {
         }
         
         // Match distances between all shapelets and timeseries
-        let distMap: [[String: Double]] = getUniversalDistances()
-        Database.shared.initDistMap(distMap: distMap)
+        let distMapArr: [[[String: Double]]] = getUniversalDistances()
+        Database.shared.initDistMap(distMapArr: distMapArr)
         
         return "\(files.count) \n\n\(cumCount) \n\n\(files.debugDescription) \n\n\(message)"
     }
@@ -387,63 +387,89 @@ extension DatabaseManager {
     
     public func getTopKTimeseries(defaultTopK: Int, shapelet: Shapelet) -> [Timeseries] {
         let allTimeseries = Database.shared.allTimeseries
-        let distMap = Database.shared.distMap
+        let distMapArr = Database.shared.distMapArr
         let defaultTopK: Int = defaultTopK
         var timeseriesArr = [Timeseries]()
         
-        distMap.forEach { oneMap in
-            guard let shapeletId = oneMap["shapeletId"], let timeseriesId = oneMap["timeseriesId"] else {
+        distMapArr.forEach { oneShapeletMap in
+            guard let shapeletId = oneShapeletMap.first?["shapeletId"], let _ = oneShapeletMap.first?["timeseriesId"] else {
                 return
             }
             
             if shapeletId == Double(shapelet.id) {
-                for _ in 0..<defaultTopK {
-                    guard let timeseries = binarySearch(in: allTimeseries, for: Int(timeseriesId)) else {
+                for index in 0..<defaultTopK {
+                    let eachId = oneShapeletMap[index]["timeseriesId"]
+                    guard let timeseries = binarySearch(in: allTimeseries, for: Int(eachId ?? 0)) else {
                         return
                     }
                     timeseriesArr.append(timeseries)
                 }
+                return
             }
         }
         
         return timeseriesArr
     }
     
-    public func getUniversalDistances() -> [[String: Double]] {
-        var distMap = [[String: Double]]()
+    public func getUniversalDistances() -> [[[String: Double]]] {
+        var distMapArr = [[[String: Double]]]()
         let allTimeseries: [Timeseries] = Database.shared.allTimeseries
         let allShapelets: [Shapelet] = Database.shared.allShapelets
         
-        allTimeseries.forEach { timeseries in
-            allShapelets.forEach { shapelet in
+        allShapelets.forEach { shapelet in
+            var singleArr = [[String: Double]]()
+            
+            allTimeseries.forEach { timeseries in
                 let distance = getDistance(timeseries: timeseries, shapelet: shapelet)
                 /*
                  [
-                 [shapeletId: shapelet.id],
-                 [timeseriesId: timeseries.id],
-                 [distance: distance],
-                 [startPosition: startPosition]
+                     [
+                         [shapeletId: shapelet.id],
+                         [timeseriesId: timeseries.id],
+                         [distance: distance],
+                         [startPosition: startPosition]
+                         ]
+                 
+                         [
+                         [shapeletId: shapelet.id],
+                         [timeseriesId: timeseries.id],
+                         [distance: distance],
+                         [startPosition: startPosition]
+                     ]
+                     ... // number of shapelets
                  ]
+                 
                  */
                 let singleMap: [String: Double] = ["shapeletId": Double(shapelet.id), "timeseriesId": Double(timeseries.id), "distance": distance.1, "startPosition": Double(distance.0)]
                 
-                distMap.append(singleMap)
+                singleArr.append(singleMap)
             }
+            let sortedSingleArr = singleArr.sorted {
+                $0["distance"]! < $1["distance"]!
+            }
+            distMapArr.append(sortedSingleArr)
         }
         
         // Sort all maps
         /*
          [
-         [shapeletId: shapelet.id],
-         [timeseriesId: timeseries.id],
-         [distance: distance],
-         [startPosition: startPosition]
+             [
+                 [shapeletId: shapelet.id],
+                 [timeseriesId: timeseries.id],
+                 [distance: distance],
+                 [startPosition: startPosition]
+                 ]
+         
+                 [
+                 [shapeletId: shapelet.id],
+                 [timeseriesId: timeseries.id],
+                 [distance: distance],
+                 [startPosition: startPosition]
+             ]
+             ... // number of shapelets
          ]
          */
-        let sortedDistMap = distMap.sorted {
-            $0["distance"]! < $1["distance"]!
-        }
-        return sortedDistMap
+        return distMapArr
     }
     
     // Search Timeseries
