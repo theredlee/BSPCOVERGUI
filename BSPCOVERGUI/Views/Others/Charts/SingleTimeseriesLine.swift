@@ -1,17 +1,19 @@
 //
-//  LineChartSwiftUIView.swift
+//  SingleSingleTimeseriesLine.swift
 //  BSPCOVERGUI
 //
-//  Created by TheRedLee on 8/24/20.
+//  Created by TheRedLee on 8/28/20.
 //
+
+import SwiftUI
 
 import SwiftUI
 import Charts
 
-struct TimeseriesLine: NSViewRepresentable {
+struct SingleTimeseriesLine: NSViewRepresentable {
     // Plotting in IOS using Charts framework with SwiftUI | by Evgeny Basisty | Medium
     // Line chart accepts data as array of BarChartDataEntry objects
-    @Binding var selectedTimeseries: Timeseries?
+    var selectedTimeseries: Timeseries?
     
     func makeNSView(context: Context) -> LineChartView {
         //it is convenient to form chart data in a separate func
@@ -39,8 +41,8 @@ struct TimeseriesLine: NSViewRepresentable {
     typealias NSViewType = LineChartView
 }
 
-struct Line_Previews: PreviewProvider {
+struct SingleTimeseriesLine_Previews: PreviewProvider {
     static var previews: some View {
-        TimeseriesLine(selectedTimeseries: .constant(Database.shared.defaultTimeseries))
+        SingleTimeseriesLine(selectedTimeseries: Database.shared.defaultTimeseries)
     }
 }

@@ -41,6 +41,6 @@ struct ShapeletLine: NSViewRepresentable {
 
 struct ShapeletLine_Previews: PreviewProvider {
     static var previews: some View {
-        ShapeletLine(selectedShapelet: .constant(Database.shared.allShapelets[0]))
+        ShapeletLine(selectedShapelet: .constant(Database.shared.defaultShapelet))
     }
 }

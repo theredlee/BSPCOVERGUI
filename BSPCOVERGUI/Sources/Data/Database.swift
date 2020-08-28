@@ -23,7 +23,7 @@ final class Database: ObservableObject {
     
     public var defaultTimeseriesLabel: Label
     
-    private var timeseriesIsInit: Bool = false
+    public var timeseriesIsInit: Bool = false
     
     // Shapelet property
     public var allShapelets: [Shapelet]
@@ -36,7 +36,10 @@ final class Database: ObservableObject {
     
     public var defaultShapeletLabel: Label
     
-    private var shapeletIsInit: Bool = false
+    public var shapeletIsInit: Bool = false
+    
+    // Distances match between shapelets and timeseries
+    public var distMap: [[String: Double]]
     
     //
     init() {
@@ -53,6 +56,9 @@ final class Database: ObservableObject {
         defaultShapelet = allShapelets[0]
         defaultShapeletLabel = Label(id: -1, value: -1)
         shapeletCount = -1
+        
+        // Distance Map
+        distMap = [["unInitializedVal": -1]]
     }
 }
 
@@ -139,5 +145,9 @@ extension Database {
             return allLabels
         }()
         defaultShapeletLabel = allShapeletLabels[0]
+    }
+    
+    public func initDistMap(distMap: [[String: Double]]) {
+        self.distMap = distMap
     }
 }

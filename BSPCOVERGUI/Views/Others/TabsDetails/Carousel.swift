@@ -12,6 +12,7 @@ struct Carousel: View {
     @Binding var selectedTimeseriesLabel: Label?
     @Binding var selectedShapelet: Shapelet?
     @Binding var selectedShapeletLabel: Label?
+    @Binding var timeseriesArr: [Timeseries]?
     @Binding var str: String
     let colors: [Color] = [.white, .red, .green, .blue, .orange, .pink, .purple, .yellow]
     
@@ -34,21 +35,21 @@ struct Carousel: View {
                     }
                     .frame(width: fullView.size.width)
                     
+                    //                    GeometryReader { geo in
+                    //                        Rectangle()
+                    //                            .fill(self.colors[0 % 8])
+                    //                            .frame(height: fullView.size.height)
+                    //                            //                                    .rotation3DEffect(.degrees(-Double(geo.frame(in: .global).midX - fullView.size.width / 2) / 10), axis: (x: 0, y: 1, z: 0))
+                    //                            .transformEffect(CGAffineTransform(rotationAngle: 0))
+                    //
+                    //                    }
+                    //                    .frame(width: fullView.size.width)
+                    
                     GeometryReader { geo in
-                        Rectangle()
-                            .fill(self.colors[0 % 8])
-                            .frame(height: fullView.size.height)
-                            //                                    .rotation3DEffect(.degrees(-Double(geo.frame(in: .global).midX - fullView.size.width / 2) / 10), axis: (x: 0, y: 1, z: 0))
-                            .transformEffect(CGAffineTransform(rotationAngle: 0))
-                        
+                        TabDetails(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedShapelet: .constant(Database.shared.defaultShapelet), timeseriesArr: .constant([Database.shared.defaultTimeseries]))
                     }
                     .frame(width: fullView.size.width)
                     //                    }
-                    
-                    GeometryReader { geo in
-                        TabDetails()
-                    }
-                    .frame(width: fullView.size.width)
                 }
                 //                    .padding(.horizontal, (fullView.size.width - 150) / 2)
                 .padding(.horizontal, 0)
@@ -60,6 +61,6 @@ struct Carousel: View {
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        Carousel(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedTimeseriesLabel: .constant(Database.shared.defaultTimeseriesLabel), selectedShapelet: .constant(Database.shared.defaultShapelet), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel), str: .constant("This is Carousel."))
+        Carousel(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedTimeseriesLabel: .constant(Database.shared.defaultTimeseriesLabel), selectedShapelet: .constant(Database.shared.defaultShapelet), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel), timeseriesArr: .constant([Database.shared.defaultTimeseries]), str: .constant("This is Carousel."))
     }
 }

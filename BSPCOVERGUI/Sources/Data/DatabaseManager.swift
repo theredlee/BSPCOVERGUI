@@ -245,6 +245,11 @@ extension DatabaseManager {
             cumCount += info.0
             message += info.1
         }
+        
+        // Match distances between all shapelets and timeseries
+        let distMap: [[String: Double]] = getUniversalDistances()
+        Database.shared.initDistMap(distMap: distMap)
+        
         return "\(files.count) \n\n\(cumCount) \n\n\(files.debugDescription) \n\n\(message)"
     }
     
@@ -343,6 +348,144 @@ extension DatabaseManager {
         
         // Pass data into database
         return Database.shared.shapeletInsert(myAllShapelets: shapeletArr)
+    }
+}
+
+extension DatabaseManager {
+    public func getDistance(timeseries: Timeseries, shapelet: Shapelet) -> (Int, Double) {
+        guard timeseries.values.count > 0 else {
+            return (-1, -1)
+        }
+        guard timeseries.values.count > 0 else {
+            return (-1, -1)
+        }
+        
+        let timeseriesVals: [Double] = timeseries.values
+        let shapeletVals: [Double] = shapelet.values
+        
+        var startPosition = 0
+        var distanceBetweenST: Double = 0
+        var distanceMin: Double = Double.infinity
+        for i in 0..<(timeseriesVals.count-shapeletVals.count) {
+            // index in indexthis.aVariables.currentShapelet
+            distanceBetweenST = 0;
+            for j in 0..<shapeletVals.count {
+                // index in indexthis.aVariables.currentShapelet
+                distanceBetweenST += pow(timeseriesVals[j+i] - shapeletVals[j], 2.0)
+            }
+            distanceBetweenST = sqrt(distanceBetweenST)
+            //System.out.println("distanceBetweenST "+distanceBetweenST);
+            if distanceBetweenST < distanceMin {
+                distanceMin = distanceBetweenST
+                startPosition = i /*** Interesting **/
+            }
+        }
+        //        System.out.println("From drawShapeletTrace_centerChart() -> startPoint: " + startPosition);
+        //        return distanceMin/((this.aVariables.currentSPLet_.size()-1)*1.0);
+        return (startPosition, distanceMin*1.0)
+    }
+    
+    public func getTopKTimeseries(defaultTopK: Int, shapelet: Shapelet) -> [Timeseries] {
+        let allTimeseries = Database.shared.allTimeseries
+        let distMap = Database.shared.distMap
+        let defaultTopK: Int = defaultTopK
+        var timeseriesArr = [Timeseries]()
+        
+        distMap.forEach { oneMap in
+            guard let shapeletId = oneMap["shapeletId"], let timeseriesId = oneMap["timeseriesId"] else {
+                return
+            }
+            
+            if shapeletId == Double(shapelet.id) {
+                for _ in 0..<defaultTopK {
+                    guard let timeseries = binarySearch(in: allTimeseries, for: Int(timeseriesId)) else {
+                        return
+                    }
+                    timeseriesArr.append(timeseries)
+                }
+            }
+        }
+        
+        return timeseriesArr
+    }
+    
+    public func getUniversalDistances() -> [[String: Double]] {
+        var distMap = [[String: Double]]()
+        let allTimeseries: [Timeseries] = Database.shared.allTimeseries
+        let allShapelets: [Shapelet] = Database.shared.allShapelets
+        
+        allTimeseries.forEach { timeseries in
+            allShapelets.forEach { shapelet in
+                let distance = getDistance(timeseries: timeseries, shapelet: shapelet)
+                /*
+                 [
+                 [shapeletId: shapelet.id],
+                 [timeseriesId: timeseries.id],
+                 [distance: distance],
+                 [startPosition: startPosition]
+                 ]
+                 */
+                let singleMap: [String: Double] = ["shapeletId": Double(shapelet.id), "timeseriesId": Double(timeseries.id), "distance": distance.1, "startPosition": Double(distance.0)]
+                
+                distMap.append(singleMap)
+            }
+        }
+        
+        // Sort all maps
+        /*
+         [
+         [shapeletId: shapelet.id],
+         [timeseriesId: timeseries.id],
+         [distance: distance],
+         [startPosition: startPosition]
+         ]
+         */
+        let sortedDistMap = distMap.sorted {
+            $0["distance"]! < $1["distance"]!
+        }
+        return sortedDistMap
+    }
+    
+    // Search Timeseries
+    private func binarySearch(in numbers: [Timeseries], for value: Int) -> Timeseries? {
+        var left = 0
+        var right = numbers.count - 1
+        
+        while left <= right {
+            
+            let middle = Int(floor(Double(left + right) / 2.0))
+            
+            if numbers[middle].id < value {
+                left = middle + 1
+            } else if numbers[middle].id > value {
+                right = middle - 1
+            } else {
+                return numbers[middle]
+            }
+        }
+        
+        return nil
+    }
+    
+    // Search Shapelet
+    private func binarySearch(in numbers: [Shapelet], for value: Int) -> Shapelet? {
+        var left = 0
+        var right = numbers.count - 1
+        
+        while left <= right {
+            
+            let middle = Int(floor(Double(left + right) / 2.0))
+            
+            if numbers[middle].id < value {
+                left = middle + 1
+            } else if numbers[middle].id > value {
+                right = middle - 1
+            } else {
+                return numbers[middle]
+            }
+        }
+        
+        return nil
     }
 }
 
