@@ -10,7 +10,7 @@ import SwiftUI
 struct LoadShapelet: View {
     @Binding var selectedShapelet: Shapelet?
     @Binding var str: String
-    @Binding var selectedTimeseriesLabel: Label?
+    @Binding var selectedShapeletLabel: Label?
     
     var body: some View {
         Button("Load Shapelet", action: {
@@ -62,7 +62,7 @@ struct LoadShapelet: View {
                         let aStr = DatabaseManager.shared.readLocalShapeletDirectory(fileDirectory: userSelectedFolderURL.absoluteURL)
                         // After loading new data, update the binding value
                         selectedShapelet = Database.shared.defaultShapelet
-                        selectedTimeseriesLabel = Database.shared.defaultShapeletLabel
+                        selectedShapeletLabel = Database.shared.defaultShapeletLabel
                         
                         print("User selected folder: \(url)")
                         str = "User selected folder: \n\(aStr)"
@@ -94,6 +94,6 @@ struct LoadShapelet: View {
 
 struct LoadShapelet_Previews: PreviewProvider {
     static var previews: some View {
-        LoadShapelet(selectedShapelet: .constant(Database.shared.defaultShapelet), str: .constant("Load shapelet started"), selectedTimeseriesLabel: .constant(Database.shared.defaultShapeletLabel))
+        LoadShapelet(selectedShapelet: .constant(Database.shared.defaultShapelet), str: .constant("Load shapelet started"), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel))
     }
 }

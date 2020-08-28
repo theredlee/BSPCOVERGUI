@@ -9,9 +9,10 @@ import SwiftUI
 
 struct Carousel: View {
     @Binding var selectedTimeseries: Timeseries?
-    //    @State var selectedTimeseriesLabel: Label?
+    @Binding var selectedTimeseriesLabel: Label?
     @Binding var selectedShapelet: Shapelet?
-    //    @State var selectedShapeletLabel: Label?
+    @Binding var selectedShapeletLabel: Label?
+    @Binding var str: String
     let colors: [Color] = [.white, .red, .green, .blue, .orange, .pink, .purple, .yellow]
     
     var body: some View {
@@ -19,6 +20,12 @@ struct Carousel: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     //                    ForEach(0..<3) { index in
+                    GeometryReader { geo in
+                        TabBSPCOVERRun(str: $str)
+                        
+                    }
+                    .frame(width: fullView.size.width)
+                    
                     GeometryReader { geo in
                         TabOverall(selectedTimeseries: $selectedTimeseries, selectedShapelet: $selectedShapelet)
                             .frame(height: fullView.size.height)
@@ -37,6 +44,11 @@ struct Carousel: View {
                     }
                     .frame(width: fullView.size.width)
                     //                    }
+                    
+                    GeometryReader { geo in
+                        TabDetails()
+                    }
+                    .frame(width: fullView.size.width)
                 }
                 //                    .padding(.horizontal, (fullView.size.width - 150) / 2)
                 .padding(.horizontal, 0)
@@ -48,6 +60,6 @@ struct Carousel: View {
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        Carousel(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedShapelet: .constant(Database.shared.defaultShapelet))
+        Carousel(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedTimeseriesLabel: .constant(Database.shared.defaultTimeseriesLabel), selectedShapelet: .constant(Database.shared.defaultShapelet), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel), str: .constant("This is Carousel."))
     }
 }

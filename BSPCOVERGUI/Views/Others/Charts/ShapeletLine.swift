@@ -26,7 +26,7 @@ struct ShapeletLine: NSViewRepresentable {
     }
     
     func addData(values: [Double]) -> LineChartData{
-        let ys = selectedShapelet?.values ?? Database.shared.allTimeseries[0].values
+        let ys = selectedShapelet?.values ?? Database.shared.allShapelets[0].values
         let yse = ys.enumerated().map { x, y in return ChartDataEntry(x: Double(x), y: y) }
         let data = LineChartData()
         let ds = LineChartDataSet(entries: yse, label: selectedShapelet?.name ?? "Hello")

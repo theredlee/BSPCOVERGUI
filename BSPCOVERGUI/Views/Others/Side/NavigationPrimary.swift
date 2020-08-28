@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NavigationPrimary: View {
-    @State private var str: String = "Console started."
+    @Binding var str: String
     @Binding var selectedTimeseries: Timeseries?
     @Binding var selectedTimeseriesLabel: Label?
     @Binding var selectedShapelet: Shapelet?
@@ -28,11 +28,13 @@ struct NavigationPrimary: View {
             
             Divider()
             
-            LoadShapelet(selectedShapelet: $selectedShapelet, str: $str, selectedTimeseriesLabel: $selectedShapeletLabel)
+            LoadShapelet(selectedShapelet: $selectedShapelet, str: $str, selectedShapeletLabel: $selectedShapeletLabel)
 
             SideBarListShapelet(selectedShapelet: $selectedShapelet, selectedShapeletLabel: $selectedShapeletLabel)
             
-            ConsolePanel(str: $str)
+            Divider()
+            
+            Console(str: $str)
         }
         .frame(minWidth: 225, maxWidth: 300)
         .onChange(of: selectedTimeseries, perform: { value in
@@ -43,6 +45,6 @@ struct NavigationPrimary: View {
 
 struct NavigationPrimary_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationPrimary(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedTimeseriesLabel: .constant(Database.shared.defaultTimeseriesLabel), selectedShapelet: .constant(Database.shared.defaultShapelet), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel))
+        NavigationPrimary(str: .constant("Navigation Bar Started."), selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedTimeseriesLabel: .constant(Database.shared.defaultTimeseriesLabel), selectedShapelet: .constant(Database.shared.defaultShapelet), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel))
     }
 }

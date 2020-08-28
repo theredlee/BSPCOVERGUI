@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import Charts
 
 struct TabDetails: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            HStack{
+                VBar(entries: [
+                    //x - position of a VBar, y - height of a VBar
+                    BarChartDataEntry(x: 1, y: 1),
+                    BarChartDataEntry(x: 2, y: 1),
+                    BarChartDataEntry(x: 3, y: 1),
+                    BarChartDataEntry(x: 4, y: 1),
+                    BarChartDataEntry(x: 5, y: 1)
+                ])
+            }
+            .padding()
+        }
     }
 }
 
