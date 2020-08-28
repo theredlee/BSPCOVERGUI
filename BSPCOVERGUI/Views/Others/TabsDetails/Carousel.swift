@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct Carousel: View {
-    @State private var selectedTimeseries: Timeseries?
+    @Binding var selectedTimeseries: Timeseries?
     //    @State var selectedTimeseriesLabel: Label?
-    @State var selectedShapelet: Shapelet?
+    @Binding var selectedShapelet: Shapelet?
     //    @State var selectedShapeletLabel: Label?
-    let colors: [Color] = [.red, .green, .blue, .orange, .pink, .purple, .yellow]
+    let colors: [Color] = [.white, .red, .green, .blue, .orange, .pink, .purple, .yellow]
     
     var body: some View {
         GeometryReader { fullView in
@@ -29,7 +29,7 @@ struct Carousel: View {
                     
                     GeometryReader { geo in
                         Rectangle()
-                            .fill(self.colors[1 % 7])
+                            .fill(self.colors[0 % 8])
                             .frame(height: fullView.size.height)
                             //                                    .rotation3DEffect(.degrees(-Double(geo.frame(in: .global).midX - fullView.size.width / 2) / 10), axis: (x: 0, y: 1, z: 0))
                             .transformEffect(CGAffineTransform(rotationAngle: 0))
@@ -48,6 +48,6 @@ struct Carousel: View {
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        Carousel()
+        Carousel(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedShapelet: .constant(Database.shared.defaultShapelet))
     }
 }

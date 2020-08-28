@@ -34,7 +34,7 @@
 		758A7A8224F4D43A001F9975 /* NavigationPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */; };
 		758A7A8524F4E7BA001F9975 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8424F4E7BA001F9975 /* CircleImage.swift */; };
 		75CB02B124F80ACC00E94DEA /* Socket in Frameworks */ = {isa = PBXBuildFile; productRef = 75CB02B024F80ACC00E94DEA /* Socket */; };
-		75CB034824F8B83600E94DEA /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CB034524F8B83600E94DEA /* NMSSH.framework */; };
+		75CB034824F8B83600E94DEA /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CB034524F8B83600E94DEA /* NMSSH.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		75CB034924F8B84C00E94DEA /* NMSSH.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75CB034524F8B83600E94DEA /* NMSSH.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75CB034C24F8B8C200E94DEA /* ServerHandeller.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CB034B24F8B8C200E94DEA /* ServerHandeller.m */; };
 		75DF339524F78C5700EFBB9E /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF339424F78C5700EFBB9E /* Carousel.swift */; };
@@ -124,10 +124,10 @@
 		758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPrimary.swift; sourceTree = "<group>"; };
 		758A7A8424F4E7BA001F9975 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		75CB034524F8B83600E94DEA /* NMSSH.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMSSH.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/NMSSH-adhgwagzlvhhbyfpbotyxngkcgup/Build/Products/Debug/NMSSH.framework"; sourceTree = "<group>"; };
-		75CB034A24F8B8C200E94DEA /* BSPCOVERGUI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BSPCOVERGUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		75CB034B24F8B8C200E94DEA /* ServerHandeller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerHandeller.m; sourceTree = "<group>"; };
 		75CB034D24F8BBCB00E94DEA /* ServerHandeller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerHandeller.h; sourceTree = "<group>"; };
 		75DF339424F78C5700EFBB9E /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		75ED5E5724F8C0FE00C8FCC3 /* BSPCOVERGUI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BSPCOVERGUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		75F1A34824F69A7A00370602 /* SideBarListShapelet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarListShapelet.swift; sourceTree = "<group>"; };
 		75F1A34B24F69C4300370602 /* SideBarRowShapelet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarRowShapelet.swift; sourceTree = "<group>"; };
 		75F1A35024F6A36700370602 /* ShapeletLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeletLine.swift; sourceTree = "<group>"; };
@@ -281,7 +281,6 @@
 		7585532324F3B2FB00F18913 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				75CB034A24F8B8C200E94DEA /* BSPCOVERGUI-Bridging-Header.h */,
 				75CB034E24F8BC0500E94DEA /* Objective-C */,
 				755B44BA24F3DBAA00462CE9 /* Data */,
 			);
@@ -344,6 +343,7 @@
 		75CB034E24F8BC0500E94DEA /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				75ED5E5724F8C0FE00C8FCC3 /* BSPCOVERGUI-Bridging-Header.h */,
 				75CB034B24F8B8C200E94DEA /* ServerHandeller.m */,
 				75CB034D24F8BBCB00E94DEA /* ServerHandeller.h */,
 			);
@@ -727,7 +727,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.BSPCOVERGUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/leone/Documents/Summer_research/BSPCOVER/GitHub/BSPCOVERGUI/BSPCOVERGUI/Sources/BSPCOVERGUI-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "BSPCOVERGUI/Sources/Objective-C/BSPCOVERGUI-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -754,7 +754,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.BSPCOVERGUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/leone/Documents/Summer_research/BSPCOVER/GitHub/BSPCOVERGUI/BSPCOVERGUI/Sources/BSPCOVERGUI-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "BSPCOVERGUI/Sources/Objective-C/BSPCOVERGUI-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

@@ -17,7 +17,8 @@ struct ContentView: View {
         NavigationView {
             NavigationPrimary(selectedTimeseries: $selectedTimeseries, selectedTimeseriesLabel: $selectedTimeseriesLabel, selectedShapelet: $selectedShapelet, selectedShapeletLabel: $selectedShapeletLabel)
             
-            TabOverall(selectedTimeseries: $selectedTimeseries, selectedShapelet: $selectedShapelet)
+            //            TabOverall(selectedTimeseries: $selectedTimeseries, selectedShapelet: $selectedShapelet)
+            Carousel(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedShapelet: .constant(Database.shared.defaultShapelet))
         }
         .navigationTitle("BSPCOVERGUI")
         .frame(minWidth: 700, minHeight: 300)

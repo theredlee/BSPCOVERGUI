@@ -12,7 +12,6 @@
 #endif /* ServerHandeller_h */
 
 #import <Foundation/Foundation.h>
-#import <NMSSH/NMSSH.h>
 
 @interface ServerHandeller : NSObject
 

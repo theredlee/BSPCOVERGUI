@@ -55,7 +55,6 @@ struct TabOverall: View {
                 .lineLimit(nil)
         }
         .padding()
-        .frame(maxWidth: 700)
     }
 }
 
