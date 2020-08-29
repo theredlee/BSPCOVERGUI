@@ -38,24 +38,45 @@ final class Database: ObservableObject {
     
     public var shapeletIsInit: Bool = false
     
+    // Shapelet weight property
+    public var allShapeletWeights: [ShapeletWeight]
+    
+    public var defaultShapeletWeights: ShapeletWeight
+    
+    public var shapeletWeightsCount: Int
+    
+    public var allShapeletWeightLabels: [Label]
+    
+    public var defaultShapeletWeightLabel: Label
+    
+    public var shapeletWeightIsInit: Bool = false
+    
+    
     // Distances match between shapelets and timeseries
     public var distMapArr: [[[String: Double]]]
     
     //
     init() {
         // Timeseries
-        allTimeseriesLabels = [Label(id: -1, value: -1)]
-        allTimeseries = [Timeseries(id: -1, values: [0], label: allTimeseriesLabels[0])]
-        defaultTimeseries = allTimeseries[0]
         defaultTimeseriesLabel = Label(id: -1, value: -1)
-        timeseriesCount = -1
+        defaultTimeseries = Timeseries(id: -1, values: [0], label: defaultTimeseriesLabel)
+        allTimeseriesLabels = [defaultTimeseriesLabel]
+        allTimeseries = [defaultTimeseries]
+        timeseriesCount = allTimeseries.count
         
         // Shapelet
-        allShapeletLabels = [Label(id: -1, value: -1)]
-        allShapelets = [Shapelet(id: -1, values: [0], label: allShapeletLabels[0])]
-        defaultShapelet = allShapelets[0]
         defaultShapeletLabel = Label(id: -1, value: -1)
-        shapeletCount = -1
+        defaultShapelet = Shapelet(id: -1, values: [0], label: defaultShapeletLabel)
+        allShapeletLabels = [defaultShapeletLabel]
+        allShapelets = [defaultShapelet]
+        shapeletCount = allShapelets.count
+        
+        // Shapelet Weight
+        defaultShapeletWeightLabel = Label(id: -1, value: -1)
+        defaultShapeletWeights = ShapeletWeight(id: -1, values: 1.0, label: defaultShapeletWeightLabel)
+        allShapeletWeightLabels = [defaultShapeletWeightLabel]
+        allShapeletWeights = [defaultShapeletWeights]
+        shapeletWeightsCount = allShapeletWeights.count
         
         // Distance Map
         distMapArr = [[["unInitializedVal": -1]]]
@@ -149,5 +170,46 @@ extension Database {
     
     public func initDistMap(distMapArr: [[[String: Double]]]) {
         self.distMapArr = distMapArr
+    }
+}
+
+extension Database {
+    // Shapelet weight func
+    public func shapeletWeightInsert(myAllShapeletWeights: [ShapeletWeight]) -> String {
+        guard myAllShapeletWeights.count > 0 else {
+            print("Failed to fetch shapelet.")
+            return "Failed to fetch shapelet."
+        }
+        
+        // Check activation
+        if !shapeletWeightIsInit {
+            allShapeletWeights = myAllShapeletWeights
+            shapeletIsInit = true
+        }
+        
+        shapeletWeightPropertySynchronize()
+        
+        print("Successfully initialize shapelet data into database")
+        return "Successfully initialize shapelet data into database \n\(allShapeletWeights.count)"
+    }
+    
+    private func shapeletWeightPropertySynchronize() {
+        defaultShapeletWeights = allShapeletWeights[0]
+        shapeletWeightsCount = allShapeletWeights.count
+        allShapeletWeightLabels = {
+            var allVal = Set<Int>()
+            for shapeletWeight in allShapeletWeights {
+                allVal.insert(shapeletWeight.label.value)
+            }
+            let valSorted = Array(allVal).sorted()
+            var allLabels = [Label]()
+            
+            for index in 0..<valSorted.count {
+                allLabels.append(Label(id: index, value: valSorted[index]))
+            }
+            
+            return allLabels
+        }()
+        defaultShapeletWeightLabel = allShapeletWeightLabels[0]
     }
 }

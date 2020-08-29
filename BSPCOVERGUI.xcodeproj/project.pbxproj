@@ -30,10 +30,11 @@
 		7585530B24F3B2C100F18913 /* BSPCOVERGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7585530A24F3B2C100F18913 /* BSPCOVERGUITests.swift */; };
 		7585531624F3B2C100F18913 /* BSPCOVERGUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7585531524F3B2C100F18913 /* BSPCOVERGUIUITests.swift */; };
 		758A7A5D24F41652001F9975 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A5C24F41652001F9975 /* Database.swift */; };
-		758A7A7D24F41C21001F9975 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758A7A7A24F41C17001F9975 /* Charts.framework */; };
-		758A7A7E24F41C21001F9975 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 758A7A7A24F41C17001F9975 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		758A7A8224F4D43A001F9975 /* NavigationPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */; };
 		758A7A8524F4E7BA001F9975 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A7A8424F4E7BA001F9975 /* CircleImage.swift */; };
+		7599503924FA85FE00016F8C /* ShapeletWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599503824FA85FE00016F8C /* ShapeletWeight.swift */; };
+		7599503B24FA9C4400016F8C /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7599503A24FA9C4400016F8C /* Charts.framework */; };
+		7599503C24FA9C5A00016F8C /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7599503A24FA9C4400016F8C /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75CB02B124F80ACC00E94DEA /* Socket in Frameworks */ = {isa = PBXBuildFile; productRef = 75CB02B024F80ACC00E94DEA /* Socket */; };
 		75CB034824F8B83600E94DEA /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CB034524F8B83600E94DEA /* NMSSH.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		75CB034924F8B84C00E94DEA /* NMSSH.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75CB034524F8B83600E94DEA /* NMSSH.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -61,20 +62,6 @@
 			remoteGlobalIDString = 758552F324F3B2BE00F18913;
 			remoteInfo = BSPCOVERGUI;
 		};
-		758A7A7924F41C17001F9975 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 758A7A7424F41C17001F9975 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
-			remoteInfo = Charts;
-		};
-		758A7A7B24F41C17001F9975 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 758A7A7424F41C17001F9975 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
-			remoteInfo = ChartsTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,8 +71,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7599503C24FA9C5A00016F8C /* Charts.framework in Embed Frameworks */,
 				75CB034924F8B84C00E94DEA /* NMSSH.framework in Embed Frameworks */,
-				758A7A7E24F41C21001F9975 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,9 +110,10 @@
 		7585531524F3B2C100F18913 /* BSPCOVERGUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSPCOVERGUIUITests.swift; sourceTree = "<group>"; };
 		7585531724F3B2C100F18913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		758A7A5C24F41652001F9975 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		758A7A7424F41C17001F9975 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../../Downloads/Chrome Download/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		758A7A8124F4D43A001F9975 /* NavigationPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPrimary.swift; sourceTree = "<group>"; };
 		758A7A8424F4E7BA001F9975 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		7599503824FA85FE00016F8C /* ShapeletWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeletWeight.swift; sourceTree = "<group>"; };
+		7599503A24FA9C4400016F8C /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Charts-bsasrisfwflxqhgpndwrrwxgmzhl/Build/Products/Debug/Charts.framework"; sourceTree = "<group>"; };
 		75CB034524F8B83600E94DEA /* NMSSH.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMSSH.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/NMSSH-adhgwagzlvhhbyfpbotyxngkcgup/Build/Products/Debug/NMSSH.framework"; sourceTree = "<group>"; };
 		75CB034B24F8B8C200E94DEA /* ServerHandeller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerHandeller.m; sourceTree = "<group>"; };
 		75CB034D24F8BBCB00E94DEA /* ServerHandeller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerHandeller.h; sourceTree = "<group>"; };
@@ -144,7 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75CB034824F8B83600E94DEA /* NMSSH.framework in Frameworks */,
-				758A7A7D24F41C21001F9975 /* Charts.framework in Frameworks */,
+				7599503B24FA9C4400016F8C /* Charts.framework in Frameworks */,
 				75CB02B124F80ACC00E94DEA /* Socket in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,7 +218,6 @@
 				7585531424F3B2C100F18913 /* BSPCOVERGUIUITests */,
 				758552F524F3B2BE00F18913 /* Products */,
 				7585532D24F3B34C00F18913 /* Frameworks */,
-				758A7A7424F41C17001F9975 /* Charts.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				75CB034524F8B83600E94DEA /* NMSSH.framework */,
+				7599503A24FA9C4400016F8C /* Charts.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -306,6 +294,7 @@
 			children = (
 				755B44BB24F3DBF900462CE9 /* Timeseries.swift */,
 				755B44BD24F3DC0500462CE9 /* Shapelet.swift */,
+				7599503824FA85FE00016F8C /* ShapeletWeight.swift */,
 				753A126124F4ED8D00AA3F05 /* Label.swift */,
 			);
 			path = Models;
@@ -327,15 +316,6 @@
 				758552F724F3B2BE00F18913 /* BSPCOVERGUIApp.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		758A7A7524F41C17001F9975 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				758A7A7A24F41C17001F9975 /* Charts.framework */,
-				758A7A7C24F41C17001F9975 /* ChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		758A7A8324F4E79A001F9975 /* Supporting Views */ = {
@@ -473,12 +453,6 @@
 			);
 			productRefGroup = 758552F524F3B2BE00F18913 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 758A7A7524F41C17001F9975 /* Products */;
-					ProjectRef = 758A7A7424F41C17001F9975 /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				758552F324F3B2BE00F18913 /* BSPCOVERGUI */,
@@ -487,23 +461,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		758A7A7A24F41C17001F9975 /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = 758A7A7924F41C17001F9975 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		758A7A7C24F41C17001F9975 /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = 758A7A7B24F41C17001F9975 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		758552F224F3B2BE00F18913 /* Resources */ = {
@@ -542,6 +499,7 @@
 				755B44BC24F3DBF900462CE9 /* Timeseries.swift in Sources */,
 				755B44B124F3D4B300462CE9 /* VBar.swift in Sources */,
 				758A7A8224F4D43A001F9975 /* NavigationPrimary.swift in Sources */,
+				7599503924FA85FE00016F8C /* ShapeletWeight.swift in Sources */,
 				75ED5E5924F8EF5D00C8FCC3 /* HBar.swift in Sources */,
 				75F1A35124F6A36700370602 /* ShapeletLine.swift in Sources */,
 				758552FA24F3B2BE00F18913 /* ContentView.swift in Sources */,

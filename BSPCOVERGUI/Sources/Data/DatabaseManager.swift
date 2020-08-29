@@ -213,6 +213,8 @@ extension DatabaseManager {
      */
     
     public func readLocalShapeletDirectory(fileDirectory: URL) -> String {
+        var raedShapelet:Bool = false
+        var raedShapeletWeight:Bool = false
         //        let url = URL(fileURLWithPath: "/path/to/directory")
         if !fileDirectory.hasDirectoryPath {
             return "Failed to find directory."
@@ -241,9 +243,21 @@ extension DatabaseManager {
         for url in files {
             // Read each file
             print("Found \(url.absoluteString)")
-            let info = readLocalShapeletData(cumCount: cumCount, fileName: url.absoluteString)
-            cumCount += info.0
-            message += info.1
+            if url.absoluteString.contains("shapelet-original") && !raedShapelet {
+                let info = readLocalShapeletData(cumCount: cumCount, fileName: url.absoluteString)
+                cumCount += info.0
+                message += info.1
+                // Only read onece
+                raedShapelet = true
+            }else if url.absoluteString.contains("shapelet-weight") && !raedShapeletWeight {
+                let info = readShapeletWeight(fileName: url.absoluteString)
+                message += info
+                // Only read onece
+                raedShapeletWeight = true
+            }
+            else {
+                break
+            }
         }
         
         // Match distances between all shapelets and timeseries
@@ -512,6 +526,109 @@ extension DatabaseManager {
         }
         
         return nil
+    }
+}
+
+extension DatabaseManager {
+    // Read the weights
+    private func readShapeletWeight(fileName: String) -> (String) {
+        guard fileName != "file:///" else {
+            print("Failed to fetch local path.")
+            return "Failed to fetch local path. \n\(fileName)"
+        }
+        let path = fileName.replacingOccurrences(of: "file://", with: "")
+        
+        do {
+            let data = try String(contentsOfFile:path, encoding: String.Encoding.utf8).trimmingCharacters(in: .whitespaces)
+            let lines = data.components(separatedBy: "\n")
+            
+            // Define a [[Double]] container
+            let rowDataset: [[Double]] = {
+                var rowDataset = [[Double]]()
+                lines.forEach  { line in
+                    // Filter the empty trash line
+                    if !line.isEmpty {
+                        let trimmedLine = line.trimmingCharacters(in: .whitespaces)
+                        let strArr = trimmedLine.components(separatedBy: ",")
+                        rowDataset.append(strArr.compactMap(Double.init))
+                    }
+                }
+                return rowDataset
+            }()
+            
+            // Define a [Double] container
+            let labelset: [Int] = {
+                var labelset = [Int]()
+                rowDataset.forEach { line in
+                    // The first element should be label
+                    guard (round(line[0]) == line[0]) else {
+                        print("The dataset format is wrong [the first element in each rwo should be a label. \nA label should be an integer or a double format integer].")
+                        return
+                    }
+                    labelset.append(Int(line[0]))
+                }
+                return labelset
+            }()
+            
+            // Check the result
+            guard labelset.count == rowDataset.count else {
+                print("The dataset format is wrong [the first element in each rwo should be a label. \nA label should be an integer or a double format integer].")
+                return "The dataset format is wrong [the first element in each rwo should be a label. \nA label should be an integer or a double format integer]."
+            }
+            
+            // Define a [[Double]] container
+            let valueset: [[Double]] = {
+                var dataset = [[Double]]()
+                rowDataset.forEach { line in
+                    // Drop the first elements in an array
+                    var lineSkipped = [Double]()
+                    for index in 0..<line.count {
+                        if index > 0 {
+                            lineSkipped.append(line[index])
+                        }
+                    }
+                    dataset.append(lineSkipped)
+                }
+                return dataset
+            }()
+            
+            // Check the result
+            guard labelset.count == valueset.count && valueset.count == rowDataset.count else {
+                print("The number of labels doesn't equal to the number of dataset OR the dataset format is wrong [the first element in each rwo should be a label. \nA label should be an integer or a double format integer ...].")
+                return "The number of labels doesn't equal to the number of dataset OR the dataset format is wrong [the first element in each rwo should be a label. \nA label should be an integer or a double format integer ...]."
+            }
+            
+            // Pass data into [timeseires]
+            let str = shapeletWeightInit(labelset: labelset, valueset: valueset)
+            return str
+        } catch let error {
+            print("Failed to fetch local data.")
+            return "Failed to fetch local data. \n\(error)"
+        }
+    }
+    
+    //
+    private func shapeletWeightInit(labelset: [Int], valueset: [[Double]]) -> String {
+        guard (labelset.count == valueset.count && valueset.count > 0 && valueset.first?.count ?? 0 > 0 && valueset.last?.count ?? 0 > 0)  else {
+            print("Failed to load dataset values.")
+            return "Failed to load dataset values."
+        }
+        let shapeletWeightArr = { () -> [ShapeletWeight] in
+            var shapeletWeightArr = [ShapeletWeight]()
+            var count:Int = 0
+            for index in 0..<valueset.count {
+                let values = valueset[index]
+                let label = Label(id: index, value: labelset[index])
+                for weight in values {
+                    shapeletWeightArr.append(ShapeletWeight(id: count, values: weight, label: label))
+                    count += count
+                }
+            }
+            return shapeletWeightArr
+        }()
+        
+        // Pass data into database
+        return Database.shared.shapeletWeightInsert(myAllShapeletWeights: shapeletWeightArr)
     }
 }
 
