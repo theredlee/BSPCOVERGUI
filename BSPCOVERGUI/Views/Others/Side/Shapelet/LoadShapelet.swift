@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct LoadShapelet: View {
+    @Binding var selectedTimeseries: Timeseries?
     @Binding var selectedShapelet: Shapelet?
-    @Binding var str: String
     @Binding var selectedShapeletLabel: Label?
+    @Binding var str: String
+    @State private var buttonDisabled = true
     
     var body: some View {
         Button("Load Shapelet", action: {
             selectFolderBtnClicked("Start to select shapelets.")
+        })
+        .disabled(buttonDisabled)
+        .onChange(of: selectedTimeseries, perform: { value in
+            if selectedTimeseries?.id ?? -1 > -1 {
+                buttonDisabled = false
+            }
+            //            str = "selectedTimeseries.id: \(String(describing: selectedTimeseries?.id))"
         })
     }
     
@@ -60,7 +69,7 @@ struct LoadShapelet: View {
                         
                         // load time series
                         let aStr = DatabaseManager.shared.readLocalShapeletDirectory(fileDirectory: userSelectedFolderURL.absoluteURL)
-                        // After loading new data, update the binding value
+                        // After loading new data, update the binding values
                         selectedShapelet = Database.shared.defaultShapelet
                         selectedShapeletLabel = Database.shared.defaultShapeletLabel
                         
@@ -94,6 +103,6 @@ struct LoadShapelet: View {
 
 struct LoadShapelet_Previews: PreviewProvider {
     static var previews: some View {
-        LoadShapelet(selectedShapelet: .constant(Database.shared.defaultShapelet), str: .constant("Load shapelet started"), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel))
+        LoadShapelet(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedShapelet: .constant(Database.shared.defaultShapelet), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel), str: .constant("Load shapelet started"))
     }
 }

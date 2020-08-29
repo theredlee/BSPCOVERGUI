@@ -10,6 +10,6 @@ import Foundation
 struct ShapeletWeight: Hashable, Codable, Identifiable {
     var id: Int
     var name: String { return "shapeletWeight - \(id)" }
-    var values: Double
+    var value: Double
     var label: Label
 }

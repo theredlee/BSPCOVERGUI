@@ -60,7 +60,7 @@ struct LoadTimeseries: View {
                         
                         // load time series
                         let aStr = DatabaseManager.shared.readLocalTimeseriesDirectory(fileDirectory: userSelectedFolderURL.absoluteURL)
-                        // After loading new data, update the binding value
+                        // After loading new data, update the binding values
                         selectedTimeseries = Database.shared.defaultTimeseries
                         selectedTimeseriesLabel = Database.shared.defaultTimeseriesLabel
                         

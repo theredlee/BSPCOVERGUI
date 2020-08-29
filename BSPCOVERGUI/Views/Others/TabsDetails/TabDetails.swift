@@ -14,17 +14,26 @@ struct TabDetails: View {
     @Binding var timeseriesArr: [Timeseries]?
     
     var body: some View {
+        let allShapeletWeights = Database.shared.allShapeletWeights
+        let entries: [BarChartDataEntry] = {
+           var entries = [BarChartDataEntry]()
+            for index in 0..<allShapeletWeights.count {
+                entries.append(BarChartDataEntry(x: Double(index), y: allShapeletWeights[index].value))
+            }
+            return entries
+        }()
         VStack{
             MultiTimeseriesLine(selectedShapelet: $selectedShapelet, timeseriesArr: $timeseriesArr)
             Divider()
-            VBar(entries: [
+            VBar(entries: entries)
+                //                    [
                 //x - position of a VBar, y - height of a VBar
-                BarChartDataEntry(x: 1, y: 1),
-                BarChartDataEntry(x: 2, y: 1),
-                BarChartDataEntry(x: 3, y: 1),
-                BarChartDataEntry(x: 4, y: 1),
-                BarChartDataEntry(x: 5, y: 1)
-            ])
+                //                BarChartDataEntry(x: 1, y: 1),
+                //                BarChartDataEntry(x: 2, y: 1),
+                //                BarChartDataEntry(x: 3, y: 1),
+                //                BarChartDataEntry(x: 4, y: 1),
+                //                BarChartDataEntry(x: 5, y: 1)
+                //            ]
             .frame(width: 600, height: 400, alignment: .center)
         }
         .padding()

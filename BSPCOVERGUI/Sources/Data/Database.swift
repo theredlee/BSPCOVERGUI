@@ -73,7 +73,7 @@ final class Database: ObservableObject {
         
         // Shapelet Weight
         defaultShapeletWeightLabel = Label(id: -1, value: -1)
-        defaultShapeletWeights = ShapeletWeight(id: -1, values: 1.0, label: defaultShapeletWeightLabel)
+        defaultShapeletWeights = ShapeletWeight(id: -1, value: 1.0, label: defaultShapeletWeightLabel)
         allShapeletWeightLabels = [defaultShapeletWeightLabel]
         allShapeletWeights = [defaultShapeletWeights]
         shapeletWeightsCount = allShapeletWeights.count
@@ -139,7 +139,7 @@ extension Database {
             allShapelets = myAllShapelets
             shapeletIsInit = true
         }else{
-            allShapelets += myAllShapelets
+            return "\nDuplicated function call from shapeletInsert(myAllShapelets: ...)"
         }
         
         shapeletPropertySynchronize()
@@ -183,8 +183,16 @@ extension Database {
         
         // Check activation
         if !shapeletWeightIsInit {
-            allShapeletWeights = myAllShapeletWeights
-            shapeletIsInit = true
+            allShapeletWeights = {
+                // Sort all weights
+                let allShapeletWeights = myAllShapeletWeights.sorted {
+                    $0.value < $1.value
+                }
+                return allShapeletWeights
+            }()
+            shapeletWeightIsInit = true
+        }else{
+            return "Duplicated function call from shapeletWeightInsert(myAllShapeletWeights: ...)"
         }
         
         shapeletWeightPropertySynchronize()

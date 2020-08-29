@@ -28,7 +28,7 @@ struct NavigationPrimary: View {
             
             Divider()
             
-            LoadShapelet(selectedShapelet: $selectedShapelet, str: $str, selectedShapeletLabel: $selectedShapeletLabel)
+            LoadShapelet(selectedTimeseries: $selectedTimeseries, selectedShapelet: $selectedShapelet, selectedShapeletLabel: $selectedShapeletLabel, str: $str)
 
             SideBarListShapelet(selectedShapelet: $selectedShapelet, selectedShapeletLabel: $selectedShapeletLabel)
             

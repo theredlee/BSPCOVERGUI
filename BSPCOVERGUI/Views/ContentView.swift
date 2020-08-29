@@ -32,7 +32,6 @@ struct ContentView: View {
                 timeseriesArr = [Database.shared.defaultTimeseries]
                 return
             }
-            
             let count: Int = Database.shared.shapeletCount
             var numOfTimeserie: Int = 0
             
@@ -41,13 +40,11 @@ struct ContentView: View {
             } else {
                 numOfTimeserie = count
             }
-            
             timeseriesArr = DatabaseManager.shared.getTopKTimeseries(defaultTopK: numOfTimeserie, shapelet: selectedShapelet ?? Database.shared.defaultShapelet)
-            
-            let a = String(selectedShapelet?.id ?? -1)
-            let b = "\n\(String(describing: timeseriesArr?.count)) - \(String(describing: timeseriesArr?[0].id))"
+            //            let a = String(selectedShapelet?.id ?? -1)
+            //            let b = "\n\(String(describing: timeseriesArr?.count)) - \(String(describing: timeseriesArr?[0].id))"
             //            let b = timeseriesArr?.count
-            str = a + b
+            //            str = a + b
         })
     }
 }
