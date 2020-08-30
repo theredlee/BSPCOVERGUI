@@ -35,6 +35,7 @@
 		7599503924FA85FE00016F8C /* ShapeletWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599503824FA85FE00016F8C /* ShapeletWeight.swift */; };
 		7599503B24FA9C4400016F8C /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7599503A24FA9C4400016F8C /* Charts.framework */; };
 		7599503C24FA9C5A00016F8C /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7599503A24FA9C4400016F8C /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7599503E24FB6B1F00016F8C /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599503D24FB6B1F00016F8C /* Distance.swift */; };
 		75CB02B124F80ACC00E94DEA /* Socket in Frameworks */ = {isa = PBXBuildFile; productRef = 75CB02B024F80ACC00E94DEA /* Socket */; };
 		75CB034824F8B83600E94DEA /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CB034524F8B83600E94DEA /* NMSSH.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		75CB034924F8B84C00E94DEA /* NMSSH.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75CB034524F8B83600E94DEA /* NMSSH.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -114,6 +115,7 @@
 		758A7A8424F4E7BA001F9975 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		7599503824FA85FE00016F8C /* ShapeletWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeletWeight.swift; sourceTree = "<group>"; };
 		7599503A24FA9C4400016F8C /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Charts-bsasrisfwflxqhgpndwrrwxgmzhl/Build/Products/Debug/Charts.framework"; sourceTree = "<group>"; };
+		7599503D24FB6B1F00016F8C /* Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 		75CB034524F8B83600E94DEA /* NMSSH.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMSSH.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/NMSSH-adhgwagzlvhhbyfpbotyxngkcgup/Build/Products/Debug/NMSSH.framework"; sourceTree = "<group>"; };
 		75CB034B24F8B8C200E94DEA /* ServerHandeller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerHandeller.m; sourceTree = "<group>"; };
 		75CB034D24F8BBCB00E94DEA /* ServerHandeller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerHandeller.h; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				755B44BD24F3DC0500462CE9 /* Shapelet.swift */,
 				7599503824FA85FE00016F8C /* ShapeletWeight.swift */,
 				753A126124F4ED8D00AA3F05 /* Label.swift */,
+				7599503D24FB6B1F00016F8C /* Distance.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				755B44B124F3D4B300462CE9 /* VBar.swift in Sources */,
 				758A7A8224F4D43A001F9975 /* NavigationPrimary.swift in Sources */,
 				7599503924FA85FE00016F8C /* ShapeletWeight.swift in Sources */,
+				7599503E24FB6B1F00016F8C /* Distance.swift in Sources */,
 				75ED5E5924F8EF5D00C8FCC3 /* HBar.swift in Sources */,
 				75F1A35124F6A36700370602 /* ShapeletLine.swift in Sources */,
 				758552FA24F3B2BE00F18913 /* ContentView.swift in Sources */,

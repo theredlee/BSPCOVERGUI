@@ -53,7 +53,7 @@ final class Database: ObservableObject {
     
     
     // Distances match between shapelets and timeseries
-    public var distMapArr: [[[String: Double]]]
+    public var distanceMap: [Distance]
     
     //
     init() {
@@ -79,7 +79,7 @@ final class Database: ObservableObject {
         shapeletWeightsCount = allShapeletWeights.count
         
         // Distance Map
-        distMapArr = [[["unInitializedVal": -1]]]
+        distanceMap = [Distance(shapeletId: defaultShapelet.id, distanceDetails: [DistanceDetail(timeseriesId: defaultTimeseries.id, distance: 0, startPosition: 0)])]
     }
 }
 
@@ -168,8 +168,8 @@ extension Database {
         defaultShapeletLabel = allShapeletLabels[0]
     }
     
-    public func initDistMap(distMapArr: [[[String: Double]]]) {
-        self.distMapArr = distMapArr
+    public func initDistMap(distMapArr: [Distance]) {
+        self.distanceMap = distMapArr
     }
 }
 
