@@ -57,7 +57,7 @@ struct TabDetails: View {
         .padding()
     }
     
-    private func getHistogramEntry() -> ([[BarChartDataEntry]], [Double]) {
+    private func getHistogramEntry() -> ([[BarChartDataEntry]], [Int]) {
         let allTimeseries = Database.shared.allTimeseries
         let allTimeseriesLabels = Database.shared.allTimeseriesLabels
         let distanceMap = Database.shared.distanceMap
@@ -90,7 +90,8 @@ struct TabDetails: View {
         }
         
         // Establish the bins
-        var outInterval = [Double]()
+        var allInterval = [Int]()
+        var isGet = false
         alldistances.forEach { distanceDetailsWithLabel in
             let min:Double = distanceDetailsWithLabel.first?.distance ?? 1
             let max:Double = distanceDetailsWithLabel.last?.distance ?? 0
@@ -110,7 +111,7 @@ struct TabDetails: View {
             distanceDetailsWithLabel.forEach { distanceDetail in
                 //
                 for index in 1..<numOfBins+1 {
-                    let binVal = Double(index)*intervalUnit
+                    let binVal = Double(index)/25*interval
                     let distance: Double = distanceDetail.distance
                     
                     if distance < binVal {
@@ -131,12 +132,16 @@ struct TabDetails: View {
                 let binVal = Double(index)*intervalUnit
                 let allCount = Double(distanceDetailsWithLabel.count)
                 let sequence = Double(val)/allCount
-                entries.append(BarChartDataEntry(x: binVal, y: sequence))
+                entries.append(BarChartDataEntry(x: Double(index), y: sequence))
             }
             entriesArr.append(entries)
-            outInterval.append(interval)
+            
+            if !isGet {
+                allInterval = count
+                isGet = true
+            }
         }
-        return (entriesArr, outInterval)
+        return (entriesArr, allInterval)
     }
 }
 
