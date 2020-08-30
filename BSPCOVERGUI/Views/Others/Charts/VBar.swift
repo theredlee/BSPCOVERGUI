@@ -31,25 +31,21 @@ struct VBar : NSViewRepresentable {
         let data = BarChartData()
         
         for index in 0..<entriesArr.count {
-            if index == 0 {
-                let entries = entriesArr[index]
-                //BarChartDataSet is an object that contains information about your data, styling and more
-                let dataSet = BarChartDataSet(entries: entries)
-                
-                //            let dataset2 = BarChartDataSet(entries: [BarChartDataEntry(x: 2, y: 3)])
-                //            dataset2.colors = [NSUIColor.red]
-                //            dataset2.label = "My Data"
-                
-                // change VBars color to green
-                dataSet.colors = [self.colors[index % 8].withAlphaComponent(0.7)]
-                //change data label
-                dataSet.label = "My Data"
-                
-                //            data.addDataSet(dataset2)
-                data.addDataSet(dataSet)
-            }else{
-                break
-            }
+            let entries = entriesArr[index]
+            //BarChartDataSet is an object that contains information about your data, styling and more
+            let dataSet = BarChartDataSet(entries: entries)
+            
+            //            let dataset2 = BarChartDataSet(entries: [BarChartDataEntry(x: 2, y: 3)])
+            //            dataset2.colors = [NSUIColor.red]
+            //            dataset2.label = "My Data"
+            
+            // change VBars color to green
+            dataSet.colors = [self.colors[index % 8].withAlphaComponent(0.7)]
+            //change data label
+            dataSet.label = "My Data"
+            
+            //            data.addDataSet(dataset2)
+            data.addDataSet(dataSet)
         }
         
         return data

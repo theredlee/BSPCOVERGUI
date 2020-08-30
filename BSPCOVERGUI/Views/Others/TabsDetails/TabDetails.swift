@@ -106,10 +106,11 @@ struct TabDetails: View {
                 return count
             }()
             
+            var base: Int = 1
             distanceDetailsWithLabel.forEach { distanceDetail in
                 //
                 for index in 1..<numOfBins+1 {
-                    let binVal = Double(index)/25*interval
+                    let binVal = Double(index)/Double(25)*interval
                     let distance: Double = distanceDetail.distance
                     
                     if distance < binVal+min {
@@ -117,12 +118,25 @@ struct TabDetails: View {
                         break
                     }
                     
+                    base = {
+                        var base: Int = 1
+                        if intervalUnit <= 0 {
+                            return 1
+                        }
+                        while floor(intervalUnit*Double(base))<1 {
+                            base = base * 10
+                        }
+                        return base
+                    }()
+                    
                     // Handle the last element which is not included into the count[lastIndex]
-//                    if index == (numOfBins+1)-1 {
-//                        count[index-1] += 1
-//                    }
+                    if index == (numOfBins+1)-1 {
+                        count[index-1] += 1
+                    }
                 }
             }
+            
+            
             
             //
             for index in 0..<count.count {
@@ -130,7 +144,7 @@ struct TabDetails: View {
                 let binVal = Double(index)*intervalUnit
                 let allCount = Double(distanceDetailsWithLabel.count)
                 let sequence = Double(val)/allCount
-                entries.append(BarChartDataEntry(x: Double(index), y: sequence))
+                entries.append(BarChartDataEntry(x: Double(binVal*Double(base)), y: sequence))
             }
             entriesArr.append(entries)
             
