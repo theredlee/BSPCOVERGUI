@@ -41,8 +41,8 @@
             filePath = "BSPCOVERGUI/Sources/Data/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "readLocalTimeseriesData(cumCount:fileName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -57,8 +57,8 @@
             filePath = "BSPCOVERGUI/Sources/Data/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "readLocalTimeseriesData(cumCount:fileName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -73,8 +73,8 @@
             filePath = "BSPCOVERGUI/Sources/Data/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "readLocalTimeseriesData(cumCount:fileName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,8 +89,8 @@
             filePath = "BSPCOVERGUI/Sources/Data/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "readLocalTimeseriesData(cumCount:fileName:)"
             landmarkType = "7">
             <Locations>
@@ -137,8 +137,8 @@
             filePath = "BSPCOVERGUI/Sources/Data/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "readLocalTimeseriesData(cumCount:fileName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -153,8 +153,8 @@
             filePath = "BSPCOVERGUI/Sources/Data/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "readLocalTimeseriesData(cumCount:fileName:)"
             landmarkType = "7">
          </BreakpointContent>

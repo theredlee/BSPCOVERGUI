@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Charts
 
 final class DatabaseManager {
     
@@ -584,7 +585,6 @@ extension DatabaseManager {
             distanceArr.append(distance)
         }
         
-        // Sort all maps
         /*
          [
              [
@@ -611,7 +611,7 @@ extension DatabaseManager {
     }
     
     // Search Timeseries
-    private func binarySearch(in numbers: [Timeseries], for id: Int) -> Timeseries? {
+    public func binarySearch(in numbers: [Timeseries], for id: Int) -> Timeseries? {
         var left = 0
         var right = numbers.count - 1
         
