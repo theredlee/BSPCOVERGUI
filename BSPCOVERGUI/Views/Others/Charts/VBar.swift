@@ -9,9 +9,9 @@ import SwiftUI
 import Charts
 
 struct VBar : NSViewRepresentable {
-    let colors: [NSColor] = [.red, .blue, .green, .white, .orange, .purple, .yellow]
+    let colors: [NSColor] = [.blue, .red, .green, .white, .orange, .purple, .yellow]
     //VBar chart accepts data as array of BarChartDataEntry objects
-    var entriesArr : [[BarChartDataEntry]]
+    @Binding var entriesArr : [[BarChartDataEntry]]?
     // this func is reqNSred to conform to NSViewRepresentable protocol
     func makeNSView(context: Context) -> BarChartView {
         //crate new chart
@@ -29,9 +29,9 @@ struct VBar : NSViewRepresentable {
     
     func addData() -> BarChartData{
         let data = BarChartData()
-        
-        for index in 0..<entriesArr.count {
-            let entries = entriesArr[index]
+        let range:Int = entriesArr?.count ?? 1
+        for index in 0..<range {
+            let entries = entriesArr?[index]
             //BarChartDataSet is an object that contains information about your data, styling and more
             let dataSet = BarChartDataSet(entries: entries)
             
@@ -40,7 +40,7 @@ struct VBar : NSViewRepresentable {
             //            dataset2.label = "My Data"
             
             // change VBars color to green
-            dataSet.colors = [self.colors[index % 8].withAlphaComponent(0.7)]
+            dataSet.colors = [self.colors[index % 8].withAlphaComponent(0.6)]
             //change data label
             dataSet.label = "My Data"
             
@@ -59,13 +59,13 @@ struct VBar : NSViewRepresentable {
 
 struct VBar_Previews: PreviewProvider {
     static var previews: some View {
-        VBar(entriesArr: [
+        VBar(entriesArr: .constant([
             //x - position of a VBar, y - height of a VBar
             [BarChartDataEntry(x: 1, y: 1),
              BarChartDataEntry(x: 2, y: 1),
              BarChartDataEntry(x: 3, y: 1),
              BarChartDataEntry(x: 4, y: 1),
              BarChartDataEntry(x: 5, y: 1)]
-        ])
+        ]))
     }
 }

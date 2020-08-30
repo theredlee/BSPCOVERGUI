@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct Carousel: View {
     @Binding var selectedTimeseries: Timeseries?
@@ -13,6 +14,7 @@ struct Carousel: View {
     @Binding var selectedShapelet: Shapelet?
     @Binding var selectedShapeletLabel: Label?
     @Binding var timeseriesArr: [Timeseries]?
+    @Binding var entryArr: [[BarChartDataEntry]]?
     @Binding var str: String
     let colors: [Color] = [.white, .red, .green, .blue, .orange, .pink, .purple, .yellow]
     
@@ -46,7 +48,7 @@ struct Carousel: View {
                     //                    .frame(width: fullView.size.width)
                     
                     GeometryReader { geo in
-                        TabDetails(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedShapelet: .constant(Database.shared.defaultShapelet), timeseriesArr: $timeseriesArr)
+                        TabDetails(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedShapelet: .constant(Database.shared.defaultShapelet), timeseriesArr: $timeseriesArr, entryArr: $entryArr)
                     }
                     .frame(width: fullView.size.width)
                     //                    }
@@ -61,6 +63,13 @@ struct Carousel: View {
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        Carousel(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedTimeseriesLabel: .constant(Database.shared.defaultTimeseriesLabel), selectedShapelet: .constant(Database.shared.defaultShapelet), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel), timeseriesArr: .constant([Database.shared.defaultTimeseries]), str: .constant("This is Carousel."))
+        Carousel(selectedTimeseries: .constant(Database.shared.defaultTimeseries), selectedTimeseriesLabel: .constant(Database.shared.defaultTimeseriesLabel), selectedShapelet: .constant(Database.shared.defaultShapelet), selectedShapeletLabel: .constant(Database.shared.defaultShapeletLabel), timeseriesArr: .constant([Database.shared.defaultTimeseries]), entryArr: .constant([
+            //x - position of a VBar, y - height of a VBar
+            [BarChartDataEntry(x: 1, y: 1),
+             BarChartDataEntry(x: 2, y: 1),
+             BarChartDataEntry(x: 3, y: 1),
+             BarChartDataEntry(x: 4, y: 1),
+             BarChartDataEntry(x: 5, y: 1)]
+        ]), str: .constant("This is Carousel."))
     }
 }
