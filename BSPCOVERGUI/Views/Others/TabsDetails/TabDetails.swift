@@ -79,9 +79,7 @@ struct TabDetails: View {
                         }
                     }
                     // Sort the array
-                    let sortedDistanceWithLabelArr: [DistanceDetail] = distanceArrWithLabel.sorted {
-                        $0.distance < $1.distance
-                    }
+                    let sortedDistanceWithLabelArr: [DistanceDetail] = distanceArrWithLabel.sorted(by: ({ $0.distance < $1.distance }))
                     //
                     alldistances.append(sortedDistanceWithLabelArr)
                 }
@@ -114,7 +112,7 @@ struct TabDetails: View {
                     let binVal = Double(index)/25*interval
                     let distance: Double = distanceDetail.distance
                     
-                    if distance < binVal {
+                    if distance < binVal+min {
                         count[index-1] += 1
                         break
                     }
